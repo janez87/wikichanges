@@ -110,7 +110,7 @@ function parse_msg(channel, msg) {
     newPage: isNewPage,
     robot: isRobot,
     anonymous: anonymous,
-    namespace: namespacem,
+    namespace: namespace,
     time: (new Date()).getTime()
   }
 }
