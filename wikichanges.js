@@ -4,6 +4,7 @@ var os = require("os"),
 
 function WikiChanges(opts) {
   if (!opts) opts = {};
+  this.port = opts.port || 8080;
   this.channels = opts.wikipedias || _.keys(wikipedias);
   this.ircNickname = opts.ircNickname || "wikichanges-" + os.hostname();
 }
@@ -14,7 +15,8 @@ WikiChanges.prototype = {
     this.callback = callback;
     this.client = new irc.Client('irc.wikimedia.org', this.ircNickname, {
       channels: this.channels,
-      floodProtection: true
+      floodProtection: true,
+      port:this.port
     });
 
     // keep track of the last message per channel
