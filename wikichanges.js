@@ -4,7 +4,7 @@ var os = require("os"),
 
 function WikiChanges(opts) {
   if (!opts) opts = {};
-  this.port = opts.port || 8080;
+  this.port = opts.port || 6667;
   this.channels = opts.wikipedias || _.keys(wikipedias);
   this.ircNickname = opts.ircNickname || "wikichanges-" + os.hostname();
 }
